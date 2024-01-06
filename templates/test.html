@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search and Display Results</title>
+</head>
+<body>
+    <h1>Search Amino Acid Sequence</h1>
+    <form id="search-form">
+        <textarea id="sequence-input" placeholder="Paste amino acid sequence"></textarea>
+        <button type="button" onclick="search()">Search</button>
+    </form>
+    <div id="results-container"></div>
+
+    <script>
+        function search() {
+            const sequence = document.getElementById("sequence-input").value;
+
+            // Make an API request to the Flask backend
+            fetch("/search", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                },
+                body: sequence=${encodeURIComponent(sequence)},
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Process and display the API response on your webpage
+                const resultsContainer = document.getElementById("results-container");
+                resultsContainer.innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error("API request error:", error));
+        }
+    </script>
+</body>
+</html>

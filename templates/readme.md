@@ -21,9 +21,3 @@ A **Flask-based web application** that allows users to input a **protein ID** or
 - **Libraries**: `requests`, `BeautifulSoup`, `Flask`
 - **Others**: Web scraping tools for data fetching
 
-## 📦 Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/protein-info-fetcher.git
-   cd protein-info-fetcher
